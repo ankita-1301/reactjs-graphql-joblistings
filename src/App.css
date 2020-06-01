@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,14 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.ant-card-head {
+  background: #cad8e6 !important;
+}
+
+.ant-layout-header {
+  background: #f0f2f5 !important;
 }
 
 @keyframes App-logo-spin {

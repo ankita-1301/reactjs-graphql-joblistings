@@ -1,0 +1,69 @@
+#components-layout-demo-top .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.ant-card-head {
+  background: #cad8e6 !important;
+}
+
+.ant-layout-header {
+  background: #f0f2f5 !important;
+}
+
+.ant-layout-content {
+  padding: 0 50px;
+}
+
+.home-page {
+  background: #fff;
+  padding: 24px;
+  min-height: 300em;
+}
+
+.footer {
+  text-align: center;
+}
+
+.load-more-button {
+  float: right;
+  margin-right: 15px;
+}
+
+.nav-menu {
+  line-height: 64px;
+}
+
+.input-search {
+  width: 41% !important;
+  margin: 13px;
+}
+
+.filter-jobs-span {
+  margin-left: 20px;
+}
+
+.filter-select {
+  width: 15% !important;
+  margin-left: 8px;
+}
+
+.clear-filter-button {
+  margin-left: 19px !important;
+}
+
+.job-cards {
+  width: 20em;
+  height: 10em;
+  text-align: left;
+  margin: 10px !important;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.job-card-para {
+  margin: 0;
+}
