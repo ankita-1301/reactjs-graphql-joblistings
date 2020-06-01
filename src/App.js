@@ -1,30 +1,30 @@
 import React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
-import logo from "./logo.svg";
-import "./App.css";
 import ApolloClient from "./apollo";
-import JobList from "./components/JobList";
+import { Layout } from "antd";
+import Navigation from "./components/Navigation";
+import HomePage from "./components/HomePage";
+import "./styles.css";
+import { Route } from "react-router";
+
+const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
     <ApolloProvider client={ApolloClient}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Hello friend</h1>
-          <JobList />
-          <p>
-            <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Layout className="layout">
+          <Header>
+            <div className="logo" />
+            <Navigation />
+          </Header>
+          <Content>
+            <div className="home-page">
+              <Route exact path="/" component={HomePage} />
+            </div>
+          </Content>
+          <Footer className="footer">Footer text here</Footer>
+        </Layout>
       </div>
     </ApolloProvider>
   );
