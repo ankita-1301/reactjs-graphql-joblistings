@@ -80,7 +80,7 @@ const HomePage = (props) => {
     <div>
       <Input
         className="input-search"
-        placeholder="Search job title" //do not work in Antd as the values are controlled
+        placeholder="Search job title"
         onChange={onChangeSearch}
         allowClear
         type="text"
@@ -111,7 +111,7 @@ const HomePage = (props) => {
         filterOption={(input, option) =>
           option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
-        placeholder="Select city"
+        placeholder="Select city" //do not work in Antd as the values are controlled
         value={city}
         onSelect={(e) => setCity(e)}
       >
