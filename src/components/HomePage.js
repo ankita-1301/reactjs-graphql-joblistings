@@ -6,7 +6,7 @@ import "../styles.css";
 import { Input, Button, Select } from "antd";
 const { Option } = Select;
 
-const HomePage = props => {
+const HomePage = (props) => {
   const [jobList, setJobList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -17,13 +17,13 @@ const HomePage = props => {
   const { loading, error, data, fetchMore } = useQuery(QUERY_JOBS, {
     variables: {
       offset: 0,
-      limit: 100
+      limit: 100,
     },
     fetchPolicy: "cache-and-network",
     onCompleted: ({ jobs }) => {
       setJobList([...jobs]);
       if (searchResults) setSearchResults([...jobs]);
-    }
+    },
   });
 
   useQuery(FILTER_JOBS, {
@@ -32,7 +32,7 @@ const HomePage = props => {
       offset: 0,
       limit: 100,
       company: company || null,
-      city: city || null
+      city: city || null,
     },
     fetchPolicy: "cache-and-network",
     onCompleted: ({ jobs }) => {
@@ -41,7 +41,7 @@ const HomePage = props => {
       } else if (!searchText) {
         setSearchResults([...jobList]);
       }
-    }
+    },
   });
 
   const onChangeSearch = ({ target: { value } }) => {
@@ -52,14 +52,14 @@ const HomePage = props => {
   const onClickLoadMore = () =>
     fetchMore({
       variables: {
-        offset: data.jobs.length
+        offset: data.jobs.length,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
         if (!fetchMoreResult) return prev;
         return Object.assign({}, prev, {
-          jobs: [...prev.jobs, ...fetchMoreResult.jobs]
+          jobs: [...prev.jobs, ...fetchMoreResult.jobs],
         });
-      }
+      },
     });
 
   const onClickClearFilters = () => {
@@ -73,9 +73,9 @@ const HomePage = props => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
 
-  let relevantCompanies = Array.from(new Set(jobList.map(s => s.company)));
-  let relevantCities = Array.from(new Set(jobList.map(s => s.city)));
-  console.log(searchResults);
+  let relevantCompanies = Array.from(new Set(jobList.map((s) => s.company)));
+  let relevantCities = Array.from(new Set(jobList.map((s) => s.city)));
+
   return (
     <div>
       <Input
@@ -94,9 +94,9 @@ const HomePage = props => {
         }
         placeholder="Select company" //do not work in Antd as the values are controlled
         value={company}
-        onSelect={e => setCompany(e)}
+        onSelect={(e) => setCompany(e)}
       >
-        {relevantCompanies.map(c => {
+        {relevantCompanies.map((c) => {
           return (
             <Option value={c.id} key={c.name}>
               {c.name}
@@ -113,9 +113,9 @@ const HomePage = props => {
         }
         placeholder="Select city"
         value={city}
-        onSelect={e => setCity(e)}
+        onSelect={(e) => setCity(e)}
       >
-        {relevantCities.map(c => {
+        {relevantCities.map((c) => {
           return (
             <Option value={c} key={c}>
               {c}
@@ -131,7 +131,7 @@ const HomePage = props => {
         <Button
           className="load-more-button"
           style={{
-            visibility: !loadMore ? "hidden" : "visible"
+            visibility: !loadMore ? "hidden" : "visible",
           }}
           onClick={onClickLoadMore}
         >
